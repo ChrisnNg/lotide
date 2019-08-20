@@ -1,4 +1,3 @@
-//Implement a function eqArrays which takes in two arrays and returns true or false, based on a perfect match.
 
 const eqArrays = function(arrayOne, arrayTwo) {
   for (let i = 0; i < arrayOne.length; i++) {
@@ -14,5 +13,7 @@ const assertEqual = function(actual, expected) {
     console.log(`✅✅✅ Assertion passed: ${actual} === ${expected}`);
   } else (console.log(`🛑🛑🛑 Assertion failed: ${actual} !== ${expected}`));
 };
-// TEST CODE
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+// Combined function
+const assertArraysEqual = function(arrayOne, arrayTwo) {
+  assertEqual(eqArrays(arrayOne, arrayTwo), true)
+}
