@@ -7,7 +7,7 @@ const assertEqual = function(actual, expected) {
 
 const countLetters = function(string) {
   let results = {};
-  
+  string = string.toLowerCase();
   for (letter of string) {
     if (letter !== " ") {
       if (results[letter]) {
@@ -20,16 +20,16 @@ const countLetters = function(string) {
 };
 
 
-// const test = {
-//   a: 1,
-//   b: 1,
-//   c: 2,
-//   d: 2
-// };
+const test = {
+  a: 1,
+  b: 1,
+  c: 2,
+  d: 2
+};
 
-// let result = countLetters("ab cdd c");
+let result = countLetters("ab cdD c");
 
-// assertEqual(result["a"], test.a);
-// assertEqual(result.b, test.b);
-// assertEqual(result["c"], test.c);
-// assertEqual(result.d, test.d);
+assertEqual(result["a"], test.a);
+assertEqual(result.b, test.b);
+assertEqual(result["c"], test.c);
+assertEqual(result.d, test.d);
