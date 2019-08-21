@@ -7,7 +7,7 @@ const eqArrays = function(arrayOne, arrayTwo) {
   } return true;
 };
 
-// FUNCTION IMPLEMENTATION
+// FUNCTION IMPLEMENTATION assertEqual.js
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion passed: ${actual} === ${expected}`);
