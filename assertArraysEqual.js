@@ -1,19 +1,17 @@
-
+// eqArrays.js
 const eqArrays = function(arrayOne, arrayTwo) {
-  for (let i = 0; i < arrayOne.length; i++) {
-    if (arrayOne[i] !== arrayTwo[i]) {
-      return false;
-    }
-  } return true;
+  if (arrayOne.length === arrayTwo.length) {
+    for (let i = 0; i < arrayOne.length; i++) {
+      if (arrayOne[i] !== arrayTwo[i]) {
+        return false;
+      }
+    } return true;
+  }
 };
 
-// FUNCTION IMPLEMENTATION assertEqual.js
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion passed: ${actual} === ${expected}`);
-  } else (console.log(`🛑🛑🛑 Assertion failed: ${actual} !== ${expected}`));
-};
-// Combined function
+// Combined function to operate independently from assertEqual.js but requires eqArrays.js
 const assertArraysEqual = function(arrayOne, arrayTwo) {
-  assertEqual(eqArrays(arrayOne, arrayTwo), true)
+   if (eqArrays(arrayOne, arrayTwo)) {
+    console.log(`✅✅✅ Assertion passed: ${arrayOne} === ${arrayTwo}`);
+  } else (console.log(`🛑🛑🛑 Assertion failed: ${arrayOne} !== ${arrayTwo}`));
 }
