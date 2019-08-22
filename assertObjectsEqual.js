@@ -38,22 +38,34 @@ const eqObjects = function(object1, object2) {
 };
 
 
-// Primitive value tests
+
+
+// assertObjectsEqual.js -Requires eqArrays.js
+const assertObjectsEqual = function(actual, expected) {
+  const inspect = require('util').inspect; // <= add this line
+  if (eqObjects(actual, expected)) {// eqObjects should take actual and return a boolean while expected is a given boolean
+    console.log(`✅✅✅ Assertion passed: ${inspect(actual)} === ${inspect(expected)}}`);
+  } else (console.log(`🛑🛑🛑 Assertion failed: ${inspect(actual)} !== ${inspect(expected)}`));
+};
+
+
+
+// // Primitive value tests
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
+assertObjectsEqual(ab, ba); // => true
 
 const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
+assertObjectsEqual(ab, abc); // => false
 
 const acb = { a: "1", c: "3", b: "2"};
-assertEqual(eqObjects(acb, abc), true); // => false
+assertObjectsEqual(acb, abc); // => false
 
 // Arrays as values tests
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
+assertObjectsEqual(cd, dc); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
+assertObjectsEqual(cd, cd2); // => false
 
