@@ -30,7 +30,7 @@ const without = function(source, itemsToRemove) {
         break;
       } else match = true;
     }
-    if (match) {  
+    if (match) {
       output.splice(x, 0, source[x]);
     }
   } 
