@@ -21,23 +21,31 @@ const eqArrays = function(arrayOne, arrayTwo) {
 // eqObjects.js
 const eqObjects = function(object1, object2) {
   let isEqual = false;
-  let object1keys = Object.keys(object1)
-  let object2keys = Object.keys(object2)
+  let object1keys = Object.keys(object1);
+  let object2keys = Object.keys(object2);
 
   if (object1keys.length === object2keys.length) {
-    for (keys of object1keys) {
+    for (let keys in object1) {
       if (Array.isArray(object1[keys]) && Array.isArray(object2[keys])) {
         if (eqArrays(object1[keys], object2[keys])) {
           isEqual = true;
-        } else return false;
-      } else if (object1[keys] === object2[keys]) {
-        isEqual = true;
-      } else return false;
-    } return isEqual;
-  } else return false; 
+        } else {
+          isEqual = false;
+          break;
+        }
+      } else {
+        if (object1[keys] === object2[keys]) {
+          isEqual = true;
+        } else {
+          isEqual = false;
+          break;
+        }
+      }
+    }
+
+  }
+  return isEqual;
 };
-
-
 // Primitive value tests
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
@@ -56,4 +64,3 @@ assertEqual(eqObjects(cd, dc), true); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false); // => false
-
