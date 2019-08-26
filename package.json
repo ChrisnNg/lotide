@@ -1,0 +1,22 @@
+{
+  "name": "lotide",
+  "version": "1.0.0",
+  "description": "Library made for Lighthouse Labs",
+  "main": "assertArraysEqual.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisnNg/lotide.git"
+  },
+  "author": "Christopher Ng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisnNg/lotide/issues"
+  },
+  "homepage": "https://github.com/ChrisnNg/lotide#readme"
+}
