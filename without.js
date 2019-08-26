@@ -1,28 +1,10 @@
-// eqArrays.js
-const eqArrays = function(arrayOne, arrayTwo) {
-  if (arrayOne.length === arrayTwo.length) {
-    for (let i = 0; i < arrayOne.length; i++) {
-      if (arrayOne[i] !== arrayTwo[i]) {
-        return false;
-      }
-    } return true;
-  }
-};
-
-// Combined function to operate independently from assertEqual.js but requires eqArrays.js
-const assertArraysEqual = function(arrayOne, arrayTwo) {
-  if (eqArrays(arrayOne, arrayTwo)) {
-    console.log(`✅✅✅ Assertion passed: ${arrayOne} === ${arrayTwo}`);
-  } else (console.log(`🛑🛑🛑 Assertion failed: ${arrayOne} !== ${arrayTwo}`));
-};
-
-
+// const assertArraysEqual = require("./assertArraysEqual");
 // This function should take in a source array and a itemsToRemove array.
 // It should return a new array with only those elements from source that are not present in the itemsToRemove array.
 
 const without = function(source, itemsToRemove) {
   let output = [];
-  for (let x = 0; x < source.length; x++){
+  for (let x = 0; x < source.length; x++) {
     let match = true;
     for (let i = 0; i < itemsToRemove.length; i++) {
       if (source[x] === itemsToRemove[i]) {
@@ -33,9 +15,11 @@ const without = function(source, itemsToRemove) {
     if (match) {
       output.splice(x, 0, source[x]);
     }
-  } 
+  }
   return output;
 };
+
+module.exports = without;
 
 // assertArraysEqual(without([1, 2, 3], [1]), [2, 3]); // => [2, 3]
 // assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]); // => ["1", "2"]

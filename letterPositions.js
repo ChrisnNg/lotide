@@ -1,21 +1,4 @@
-// eqArrays.js
-const eqArrays = function(arrayOne, arrayTwo) {
-  if (arrayOne.length === arrayTwo.length) {
-    for (let i = 0; i < arrayOne.length; i++) {
-      if (arrayOne[i] !== arrayTwo[i]) {
-        return false;
-      }
-    } return true;
-  }
-};
-
-// Combined function to operate independently from assertEqual.js but requires eqArrays.js
-const assertArraysEqual = function(arrayOne, arrayTwo) {
-  if (eqArrays(arrayOne, arrayTwo)) {
-    console.log(`✅✅✅ Assertion passed: ${arrayOne} === ${arrayTwo}`);
-  } else (console.log(`🛑🛑🛑 Assertion failed: ${arrayOne} !== ${arrayTwo}`));
-};
-
+// const assertArraysEqual = require("./assertArraysEqual");
 //letterPositions which will return all the indices (zero-based positions) in the string where each character is found.
 
 const letterPositions = function(sentence) {
@@ -23,25 +6,27 @@ const letterPositions = function(sentence) {
   let position = 0;
   // logic to update results here
   sentence = sentence.toLowerCase();
-  for (letter of sentence) {
+  for (let letter of sentence) {
     if (results[letter]) {
-      results[letter].push(position)
+      results[letter].push(position);
       position += 1;
     } else {
-      results[letter] = [position] 
+      results[letter] = [position];
       position += 1;
     }
   }
   return results;
 };
 
-test = {
-  h: [0],
-  e: [1],
-  l: [2, 3],
-  o: [4]
-};
-assertArraysEqual(letterPositions("hello").h, test.h);
-assertArraysEqual(letterPositions("hello").e, test.e);
-assertArraysEqual(letterPositions("hello").l, test.l);
-assertArraysEqual(letterPositions("hello").o, test.o);
+module.exports = letterPositions;
+
+// let test1 = {
+//   h: [0],
+//   e: [1],
+//   l: [2, 3],
+//   o: [4]
+// };
+// assertArraysEqual(letterPositions("hello").h, test1.h);
+// assertArraysEqual(letterPositions("hello").e, test1.e);
+// assertArraysEqual(letterPositions("hello").l, test1.l);
+// assertArraysEqual(letterPositions("hello").o, test1.o);

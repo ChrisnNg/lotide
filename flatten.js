@@ -1,21 +1,5 @@
 
-// eqArrays.js
-const eqArrays = function(arrayOne, arrayTwo) {
-  if (arrayOne.length === arrayTwo.length) {
-    for (let i = 0; i < arrayOne.length; i++) {
-      if (arrayOne[i] !== arrayTwo[i]) {
-        return false;
-      }
-    } return true;
-  }
-};
-
-// assertArraysEqual.js Combined function to operate independently from assertEqual.js but requires eqArrays.js
-const assertArraysEqual = function(arrayOne, arrayTwo) {
-  if (eqArrays(arrayOne, arrayTwo)) {
-    console.log(`✅✅✅ Assertion passed: ${arrayOne} === ${arrayTwo}`);
-  } else (console.log(`🛑🛑🛑 Assertion failed: ${arrayOne} !== ${arrayTwo}`));
-};
+// const assertArraysEqual = require("./assertArraysEqual");
 
 // flatten.js - flatten is a function which given an array with other arrays inside, it can flatten it into a single-level array.
 
@@ -34,4 +18,5 @@ const flatten = function(arr) {
   } return output;
 };
 
+module.exports = flatten;
 // assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
