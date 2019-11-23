@@ -1,6 +1,6 @@
 # Lotide
 
-A mini clone of the [Lodash](https://lodash.com) library.
+A mini clone of the [Lodash](https://lodash.com) library. Tested with Mocha & Chai.
 
 ## Purpose
 
